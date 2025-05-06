@@ -23,13 +23,7 @@ const app = Vue.createApp({
     },
     computed: {
         title() {
-            if(this.onSale === true) {
-                return this.brand + ' ' + this.product + ' ' + 'is on sale!'
-            }
-
-            else {
-                return this.brand + ' ' + this.product
-            }
+            return this.brand + ' ' + this.product + ' ' + 'is on sale!'
         },
         image() {
             return this.variants[this.selectedVariant].image
@@ -37,8 +31,13 @@ const app = Vue.createApp({
         inStock() {
             return this.variants[this.selectedVariant].quantity
         },
-        // checkOnSale() {
-        //     return this.brand + ' ' + this.product + ' ' + 'is on sale!'
-        // }
+        // Solução
+        sale() {
+            if(this.onSale) {
+                return this.brand + ' ' + this.product + ' ' + 'is on sale!'
+            }
+            return ''
+        }
+        // Solução
     }
 })
